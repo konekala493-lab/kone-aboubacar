@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cours de Terminale</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; color: #203047; background: #f4f7fb; font-family: Arial, sans-serif; }
+    header { padding: 28px 8%; color: white; background: #2447a8; }
+    header h1 { margin: 0 0 8px; }
+    header p { margin: 0; color: #e0e8ff; }
+    main { width: min(1100px, 90%); margin: 36px auto; }
+    .controls { display: flex; flex-wrap: wrap; gap: 12px; margin: 20px 0; }
+    input, select { min-height: 44px; padding: 10px 12px; border: 1px solid #ccd5e3; border-radius: 8px; background: white; font-size: 16px; }
+    input { flex: 1; min-width: 220px; }
+    .courses { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+    .card { padding: 20px; border: 1px solid #e1e7f0; border-radius: 12px; background: white; box-shadow: 0 4px 14px #2030470d; }
+    .tag { display: inline-block; padding: 5px 9px; border-radius: 20px; color: #2447a8; background: #eaf0ff; font-size: 13px; }
+    .card h3 { margin: 12px 0 8px; }
+    .card p { min-height: 48px; color: #637084; line-height: 1.5; }
+    .card a { display: inline-block; margin-top: 8px; padding: 10px 14px; border-radius: 7px; color: white; background: #2447a8; text-decoration: none; }
+    .card a:hover { background: #183681; }
+    .empty { display: none; padding: 24px; text-align: center; color: #637084; background: white; border-radius: 10px; }
+    footer { margin-top: 48px; padding: 22px; text-align: center; color: #637084; background: white; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>📚 Cours de Terminale</h1>
+    <p>Retrouvez les ressources classées par matière.</p>
+  </header>
+  <main>
+    <h2>Les matières</h2>
+    <p>Recherchez une matière ou choisissez-la dans la liste.</p>
+    <div class="controls">
+      <input id="search" type="search" placeholder="Rechercher un cours..." aria-label="Rechercher un cours">
+      <select id="subject" aria-label="Filtrer par matière">
+        <option value="">Toutes les matières</option>
+        <option value="maths">Mathématiques</option>
+        <option value="physique-chimie">Physique-chimie</option>
+        <option value="svt">SVT</option>
+        <option value="français">Français</option>
+        <option value="hg">Histoire-géographie</option>
+        <option value="philo">Philosophie</option>
+      </select>
+    </div>
+    <section class="courses">
+      <article class="card" data-subject="maths"><span class="tag">Mathématiques</span><h3>Cours de mathématiques</h3><p>Ajoutez ici vos leçons et exercices de mathématiques.</p><a href="#">Ouvrir le document</a></article>
+      <article class="card" data-subject="physique-chimie"><span class="tag">Physique-chimie</span><h3>Cours de physique-chimie</h3><p>Ajoutez ici vos cours et exercices de physique-chimie.</p><a href="#">Ouvrir le document</a></article>
+      <article class="card" data-subject="svt"><span class="tag">SVT</span><h3>Cours de SVT</h3><p>Ajoutez ici vos cours de sciences de la vie et de la Terre.</p><a href="#">Ouvrir le document</a></article>
+      <article class="card" data-subject="français"><span class="tag">Français</span><h3>Cours de français</h3><p>Ajoutez ici vos leçons et textes de français.</p><a href="#">Ouvrir le document</a></article>
+      <article class="card" data-subject="hg"><span class="tag">Histoire-géographie</span><h3>Cours d’histoire-géographie</h3><p>Ajoutez ici vos cours, cartes et documents d’histoire-géographie.</p><a href="#">Ouvrir le document</a></article>
+      <article class="card" data-subject="philo"><span class="tag">Philosophie</span><h3>Cours de philosophie</h3><p>Ajoutez ici vos notions et textes de philosophie.</p><a href="#">Ouvrir le document</a></article>
+    </section>
+    <p class="empty" id="empty">Aucun cours trouvé.</p>
+  </main>
+  <footer>Kone Aboubacar Sidick</footer>
+  <script>
+    const search = document.getElementById("search");
+    const subject = document.getElementById("subject");
+    const cards = document.querySelectorAll(".card");
+    const empty = document.getElementById("empty");
+    function filterCourses() {
+      const query = search.value.toLowerCase().trim();
+      const selectedSubject = subject.value;
+      let visibleCount = 0;
+      cards.forEach((card) => {
+        const visible = card.textContent.toLowerCase().includes(query) && (!selectedSubject || card.dataset.subject === selectedSubject);
+        card.style.display = visible ? "" : "none";
+        if (visible) visibleCount++;
+      });
+      empty.style.display = visibleCount === 0 ? "block" : "none";
+    }
+    search.addEventListener("input", filterCourses);
+    subject.addEventListener("change", filterCourses);
+  </script>
+</body>
+</html>
