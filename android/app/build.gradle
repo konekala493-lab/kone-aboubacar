@@ -1,0 +1,16 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'fr.kone.coursdeterminale'
+    compileSdk 36
+
+    defaultConfig {
+        applicationId 'fr.kone.coursdeterminale'
+        minSdk 23
+        targetSdk 34
+        versionCode 1
+        versionName '1.0'
+    }
+}
