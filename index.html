@@ -3,78 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cours de Terminale</title>
+  <meta name="theme-color" content="#142653">
+  <title>Cours de Terminale D</title>
   <style>
-    * { box-sizing: border-box; }
-    body { margin: 0; color: #203047; background: #f4f7fb; font-family: Arial, sans-serif; }
-    header { padding: 28px 8%; color: white; background: #2447a8; }
-    header h1 { margin: 0 0 8px; }
-    header p { margin: 0; color: #e0e8ff; }
-    main { width: min(1100px, 90%); margin: 36px auto; }
-    .controls { display: flex; flex-wrap: wrap; gap: 12px; margin: 20px 0; }
-    input, select { min-height: 44px; padding: 10px 12px; border: 1px solid #ccd5e3; border-radius: 8px; background: white; font-size: 16px; }
-    input { flex: 1; min-width: 220px; }
-    .courses { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
-    .card { padding: 20px; border: 1px solid #e1e7f0; border-radius: 12px; background: white; box-shadow: 0 4px 14px #2030470d; }
-    .tag { display: inline-block; padding: 5px 9px; border-radius: 20px; color: #2447a8; background: #eaf0ff; font-size: 13px; }
-    .card h3 { margin: 12px 0 8px; }
-    .card p { min-height: 48px; color: #637084; line-height: 1.5; }
-    .card a { display: inline-block; margin-top: 8px; padding: 10px 14px; border-radius: 7px; color: white; background: #2447a8; text-decoration: none; }
-    .card a:hover { background: #183681; }
-    .empty { display: none; padding: 24px; text-align: center; color: #637084; background: white; border-radius: 10px; }
-    footer { margin-top: 48px; padding: 22px; text-align: center; color: #637084; background: white; }
-  
-</style>
+    :root{--navy:#142653;--blue:#3157c8;--ink:#192744;--muted:#63708a;--paper:#f5f7fc;--line:#e3e8f2;--white:#fff}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,Arial,sans-serif;line-height:1.55}a{color:inherit}
+    .hero{position:relative;overflow:hidden;color:white;background:radial-gradient(ellipse at 85% 10%,#446bdd 0,transparent 35%),linear-gradient(135deg,#142653,#203d85);padding:22px max(6vw,24px) 64px}
+    .topbar{max-width:1180px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:11px;font-weight:750;letter-spacing:.01em}.brand-mark{display:grid;place-items:center;width:42px;height:42px;border-radius:14px;background:#ffffff20;font-size:23px}.topbar a{color:#fff;text-decoration:none;font-weight:650}.topbar a:hover{text-decoration:underline}
+    .hero-content{max-width:1180px;margin:62px auto 0;display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:38px;align-items:end}.eyebrow{display:inline-flex;gap:8px;align-items:center;color:#d3ddff;font-size:.87rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.eyebrow:before{content:"";width:22px;height:2px;background:#9bb2ff}.hero h1{max-width:720px;margin:15px 0 12px;font-size:clamp(2.4rem,6vw,4.4rem);line-height:1.04;letter-spacing:-.045em}.hero p{max-width:650px;margin:0;color:#dce4ff;font-size:1.08rem}.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}.button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:11px 17px;border:1px solid transparent;border-radius:12px;text-decoration:none;font-weight:700;transition:transform .18s,background .18s}.button:hover{transform:translateY(-2px)}.button-primary{color:var(--navy);background:white}.button-quiet{color:white;border-color:#ffffff50;background:#ffffff0d}.hero-note{padding:20px;border:1px solid #ffffff35;border-radius:20px;background:#ffffff12;backdrop-filter:blur(8px)}.hero-note strong{display:block;font-size:2rem;line-height:1.2}.hero-note span{color:#dce4ff;font-size:.92rem}
+    main{width:min(1180px,90%);margin:0 auto;padding:46px 0 72px}.section-heading{display:flex;justify-content:space-between;align-items:end;gap:18px;margin-bottom:20px}.section-heading h2{margin:0;font-size:clamp(1.5rem,3vw,2rem);letter-spacing:-.025em}.section-heading p{margin:5px 0 0;color:var(--muted)}.count{white-space:nowrap;color:var(--muted);font-size:.92rem}
+    .toolbar{display:flex;gap:12px;padding:12px;margin-bottom:22px;border:1px solid var(--line);border-radius:17px;background:#fff;box-shadow:0 8px 28px #2030470a}.search-wrap{position:relative;flex:1}.search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:18px;color:#77839b}.toolbar input,.toolbar select{width:100%;min-height:48px;padding:10px 13px;border:1px solid var(--line);border-radius:11px;background:white;color:var(--ink);font:inherit;outline:none}.toolbar input{padding-left:42px}.toolbar input:focus,.toolbar select:focus{border-color:#7893f1;box-shadow:0 0 0 3px #3157c81c}.toolbar select{max-width:245px}
+    .courses{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:17px}.card{position:relative;overflow:hidden;min-height:236px;padding:22px;border:1px solid var(--line);border-radius:18px;background:var(--white);box-shadow:0 8px 26px #2030470a;transition:transform .2s,box-shadow .2s,border-color .2s}.card:hover{transform:translateY(-4px);border-color:#cad5f1;box-shadow:0 16px 36px #20304714}.card-top{display:flex;justify-content:space-between;align-items:center;gap:12px}.subject-icon{display:grid;place-items:center;width:48px;height:48px;border-radius:15px;background:#eef2ff;font-size:25px}.tag{padding:6px 10px;border-radius:99px;color:#3157c8;background:#eef2ff;font-size:.78rem;font-weight:750}.card h3{margin:16px 0 6px;font-size:1.18rem;letter-spacing:-.015em}.card p{min-height:48px;margin:0;color:var(--muted)}.resource{display:inline-flex;align-items:center;gap:8px;margin-top:18px;padding:10px 13px;border-radius:10px;background:var(--blue);color:white;text-decoration:none;font-weight:700;font-size:.92rem}.resource:hover{background:#2445ad}.missing{background:#f1f3f8;color:#6b758b;font-weight:600}.empty{display:none;padding:26px;text-align:center;border:1px dashed #cbd4e4;border-radius:16px;color:var(--muted);background:white}.help-strip{display:flex;align-items:center;gap:14px;margin-top:26px;padding:18px 20px;border:1px solid #dce5ff;border-radius:16px;background:#eef3ff}.help-strip span{font-size:23px}.help-strip p{margin:0;color:#455575}.help-strip strong{color:var(--ink)}
+    footer{padding:24px;text-align:center;border-top:1px solid var(--line);background:white;color:var(--muted)}footer strong{color:var(--ink)}
+    @media(max-width:700px){.hero{padding-bottom:46px}.hero-content{grid-template-columns:1fr;margin-top:44px;gap:22px}.hero-note{max-width:220px}.toolbar{flex-direction:column}.toolbar select{max-width:none}.section-heading{align-items:start;flex-direction:column}.courses{grid-template-columns:1fr}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+  </style>
 </head>
 <body>
-  <header>
-    <h1>📚 Cours de Terminale</h1>
-    <p>Retrouvez les ressources classées par matière.</p>
+  <header class="hero">
+    <nav class="topbar" aria-label="Navigation principale"><a class="brand" href="#accueil"><span class="brand-mark" aria-hidden="true">📚</span><span>Mon espace de révision</span></a><a href="#matieres">Voir les matières ↓</a></nav>
+    <div class="hero-content" id="accueil"><div><span class="eyebrow">Terminale D · cours et révisions</span><h1>Apprends à ton rythme.</h1><p>Retrouve tes matières, cherche un cours et ouvre les ressources disponibles depuis un seul endroit.</p><div class="hero-actions"><a class="button button-primary" href="#matieres">Explorer les matières <span aria-hidden="true">→</span></a><a class="button button-quiet" href="#conseil">Comment utiliser le site ?</a></div></div><aside class="hero-note"><strong>6 matières</strong><span>pour organiser tes révisions</span></aside></div>
   </header>
-  <main>
-    <h2>Les matières</h2>
-    <p>Recherchez une matière ou choisissez-la dans la liste.</p>
-    <div class="controls">
-      <input id="search" type="search" placeholder="Rechercher un cours..." aria-label="Rechercher un cours">
-      <select id="subject" aria-label="Filtrer par matière">
-        <option value="">Toutes les matières</option>
-        <option value="maths">Mathématiques</option>
-        <option value="physique-chimie">Physique-chimie</option>
-        <option value="svt">SVT</option>
-        <option value="français">Français</option>
-        <option value="hg">Histoire-géographie</option>
-        <option value="philo">Philosophie</option>
-      </select>
-    </div>
-    <section class="courses">
-      <article class="card" data-subject="maths"><span class="tag">Mathématiques</span><h3>Cours de mathématiques</h3><p>Ajoutez ici vos leçons et exercices de mathématiques.</p><a href="#">Ouvrir le document</a></article>
-      <article class="card" data-subject="physique-chimie"><span class="tag">Physique-chimie</span><h3>Cours de physique-chimie</h3><p>Ajoutez ici vos cours et exercices de physique-chimie.</p><a href="https://eu.wps.com/cms/docs/d/cbNaluV3s8u5XbSn?platform=pc&amp;refer=copylink">Physique</a></article>
-      <article class="card" data-subject="svt"><span class="tag">SVT</span><h3>Cours de SVT</h3><p>Ajoutez ici vos cours de sciences de la vie et de la Terre.</p><a href="#">Ouvrir le document</a></article>
-      <article class="card" data-subject="français"><span class="tag">Français</span><h3>Cours de français</h3><p>Ajoutez ici vos leçons et textes de français.</p><a href="#">Ouvrir le document</a></article>
-      <article class="card" data-subject="hg"><span class="tag">Histoire-géographie</span><h3>Cours d’histoire-géographie</h3><p>Ajoutez ici vos cours, cartes et documents d’histoire-géographie.</p><a href="#">Ouvrir le document</a></article>
-      <article class="card" data-subject="philo"><span class="tag">Philosophie</span><h3>Cours de philosophie</h3><p>Ajoutez ici vos notions et textes de philosophie.</p><a href="#">Ouvrir le document</a></article>
+  <main id="matieres">
+    <div class="section-heading"><div><h2>Tes matières</h2><p>Choisis une matière ou tape un mot-clé pour retrouver une ressource.</p></div><span class="count" id="count" aria-live="polite">6 matières affichées</span></div>
+    <div class="toolbar"><label class="search-wrap"><span class="search-icon" aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Ex. fonctions, physique, dissertation…" aria-label="Rechercher une matière ou un cours"></label><label><select id="subject" aria-label="Filtrer par matière"><option value="">Toutes les matières</option><option value="maths">Mathématiques</option><option value="physique-chimie">Physique-chimie</option><option value="svt">SVT</option><option value="français">Français</option><option value="hg">Histoire-géographie</option><option value="philo">Philosophie</option></select></label></div>
+    <section class="courses" aria-label="Liste des matières">
+      <article class="card" data-subject="maths"><div class="card-top"><span class="subject-icon" aria-hidden="true">📐</span><span class="tag">Mathématiques</span></div><h3>Cours de mathématiques</h3><p>Leçons, méthodes et exercices pour progresser en maths.</p><span class="resource missing">Document à ajouter</span></article>
+      <article class="card" data-subject="physique-chimie"><div class="card-top"><span class="subject-icon" aria-hidden="true">⚛️</span><span class="tag">Physique-chimie</span></div><h3>Cours de physique-chimie</h3><p>Retrouve ici les ressources de physique et de chimie.</p><a class="resource" href="https://eu.wps.com/cms/docs/d/cbNaluV3s8u5XbSn?platform=pc&amp;refer=copylink" target="_blank" rel="noopener noreferrer">Ouvrir le cours <span aria-hidden="true">↗</span></a></article>
+      <article class="card" data-subject="svt"><div class="card-top"><span class="subject-icon" aria-hidden="true">🌱</span><span class="tag">SVT</span></div><h3>Cours de SVT</h3><p>Sciences de la vie et de la Terre : cours et notions clés.</p><span class="resource missing">Document à ajouter</span></article>
+      <article class="card" data-subject="français"><div class="card-top"><span class="subject-icon" aria-hidden="true">✍️</span><span class="tag">Français</span></div><h3>Cours de français</h3><p>Textes, méthodes et outils pour mieux rédiger.</p><span class="resource missing">Document à ajouter</span></article>
+      <article class="card" data-subject="hg"><div class="card-top"><span class="subject-icon" aria-hidden="true">🌍</span><span class="tag">Histoire-géographie</span></div><h3>Cours d’histoire-géographie</h3><p>Repères, cartes et documents pour comprendre le monde.</p><span class="resource missing">Document à ajouter</span></article>
+      <article class="card" data-subject="philo"><div class="card-top"><span class="subject-icon" aria-hidden="true">💭</span><span class="tag">Philosophie</span></div><h3>Cours de philosophie</h3><p>Notions, textes et pistes pour préparer tes dissertations.</p><span class="resource missing">Document à ajouter</span></article>
     </section>
-    <p class="empty" id="empty">Aucun cours trouvé.</p>
+    <p class="empty" id="empty">Aucun cours ne correspond à ta recherche. Essaie un autre mot-clé.</p>
+    <aside class="help-strip" id="conseil"><span aria-hidden="true">💡</span><p><strong>Petit conseil :</strong> les documents marqués « Document à ajouter » pourront être remplacés par tes liens ou fichiers de cours.</p></aside>
   </main>
-  <footer>Kone Aboubacar Sidick</footer>
+  <footer>Créé par <strong>Kone Aboubacar Sidick</strong> · Espace de cours de Terminale D</footer>
   <script>
-    const search = document.getElementById("search");
-    const subject = document.getElementById("subject");
-    const cards = document.querySelectorAll(".card");
-    const empty = document.getElementById("empty");
-    function filterCourses() {
-      const query = search.value.toLowerCase().trim();
-      const selectedSubject = subject.value;
-      let visibleCount = 0;
-      cards.forEach((card) => {
-        const visible = card.textContent.toLowerCase().includes(query) && (!selectedSubject || card.dataset.subject === selectedSubject);
-        card.style.display = visible ? "" : "none";
-        if (visible) visibleCount++;
-      });
-      empty.style.display = visibleCount === 0 ? "block" : "none";
-    }
-    search.addEventListener("input", filterCourses);
-    subject.addEventListener("change", filterCourses);
+    const search=document.getElementById('search');
+    const subject=document.getElementById('subject');
+    const cards=[...document.querySelectorAll('.card')];
+    const empty=document.getElementById('empty');
+    const count=document.getElementById('count');
+    function filterCourses(){const query=search.value.toLocaleLowerCase('fr').trim();const selected=subject.value;let visible=0;cards.forEach(card=>{const show=card.textContent.toLocaleLowerCase('fr').includes(query)&&(!selected||card.dataset.subject===selected);card.hidden=!show;if(show)visible++});empty.style.display=visible?'none':'block';count.textContent=visible+' matière'+(visible>1?'s':'')+' affichée'+(visible>1?'s':'')}
+    search.addEventListener('input',filterCourses);subject.addEventListener('change',filterCourses);
   </script>
 </body>
 </html>
